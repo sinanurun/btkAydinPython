@@ -1,0 +1,10 @@
+print("adınız nedir")
+ad = input()
+print("Memnun oldum", ad)
+print(ad, "Yaşın Kaç")
+yas = int(input())
+print(ad,"sen",yas,"yaşındasın")
+boy = float(input("Boyun Kaç"))
+soru = ad + "cinsiyetin nedir?"
+cinsiyet = bool(input(soru))
+print(cinsiyet)
