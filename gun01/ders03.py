@@ -5,3 +5,4 @@ print(type("can"))
 #bir metin str yani string olarak tanımlanır
 print(8) # sayılar işlemler yapılır
 print("8") # metinsel işlemler yapılır
+print("Merhaba 'Aydin'")
