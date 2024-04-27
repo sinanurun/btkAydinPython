@@ -1,4 +1,4 @@
-ogrenci_ad = "Nevin"
+ogrenci_ad = input("adınızı giriniz")
 ogrenci_soyadi = "Kaçar"
 ogrenci_yas = 27
 ogrenci_boy = 1.6
