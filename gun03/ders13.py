@@ -9,4 +9,4 @@ for k,v in treng.items():
     print(k,v)
 for dd in treng:
     print(treng[dd])
-    print(dd,treng.get(dd))
+    print("*",dd,treng.get(dd))
