@@ -67,10 +67,10 @@ tavan = 100
 tahmin = int(input("Sayı giriniz"))
 while True:
     if taban < tahmin < tavan:
-        print("Tahmininiz geçerli")
+        # print("Tahmininiz geçerli")
         break
     else:
-        print("geçersiz aralıkta değer girdiniz ")
+        # print("geçersiz aralıkta değer girdiniz ")
         tahmin = int(input(f"Yeni sayı giriniz {taban}-{tavan} : "))
 
 while tahmin != sayi: # not(tahmin == sayi)
@@ -79,20 +79,20 @@ while tahmin != sayi: # not(tahmin == sayi)
         tahmin = int(input("Tahmin Hatalı daha küçük sayı :"))
         while True:
             if taban < tahmin < tavan:
-                print("Tahmininiz geçerli")
+                # print("Tahmininiz geçerli")
                 break
             else:
-                print(f"geçerli aralıkta değer giriniz {taban}-{tavan}")
+                # print(f"geçerli aralıkta değer giriniz {taban}-{tavan}")
                 tahmin = int(input(f"Yeni sayı giriniz {taban}-{tavan} : "))
     elif tahmin < sayi:
         taban = tahmin
         tahmin = int(input("Tahmin Hatalı daha büyük sayı: "))
         while True:
             if taban < tahmin < tavan:
-                print("Tahmininiz geçerli")
+                # print("Tahmininiz geçerli")
                 break
             else:
-                print(f"geçerli aralıkta değer giriniz {taban}-{tavan}")
+                # print(f"geçerli aralıkta değer giriniz {taban}-{tavan}")
                 tahmin = int(input(f"Yeni sayı giriniz {taban}-{tavan} : "))
 else:
     print("Tahmininiz Doğru oldu Tebrikler")
