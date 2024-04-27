@@ -10,6 +10,5 @@ for ksayi in sayilar:
         eb = ksayi
     if ek > ksayi:
         ek = ksayi
-    sayilar.remove(ksayi)
 print("en büyük", eb)
 print("en büçük", ek)
