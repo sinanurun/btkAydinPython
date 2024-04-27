@@ -70,7 +70,7 @@ while True:
         print("Tahmininiz geçerli")
         break
     else:
-        print("geçerli aralıkta değer girdiniz")
+        print("geçersiz aralıkta değer girdiniz")
         tahmin = int(input("Yeni sayı giriniz"))
 
 while tahmin != sayi: # not(tahmin == sayi)
