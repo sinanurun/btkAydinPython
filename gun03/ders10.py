@@ -1,6 +1,4 @@
-demet = 24,8,2001,"Esra","Gürel"
-print(demet)
-print(type(demet))
+demet = 24,8,2001,"Esra","Gürel" #(24,8,2001,"Esra","Gürel")
 pazar = ["elma","armut","karpuz"]
 pazarlik = tuple(pazar)
 print(pazarlik)
