@@ -13,6 +13,7 @@ while True:
                 break
             else:
                 kitap = []
+                # kitaplik[kategori_adi][yazar_adi] = []
                 while True:
                     kitap_adi = input("Kitap Adı - h?: ")
                     if kitap_adi == "h":
@@ -21,5 +22,6 @@ while True:
                         break
                     else:
                         kitap.append(kitap_adi)
+                        # kitaplik[kategori_adi][yazar_adi].append(kitap_adi)
 
 print(kitaplik)
