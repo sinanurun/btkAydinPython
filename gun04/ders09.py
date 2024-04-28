@@ -36,6 +36,7 @@ while True:
                 dosya.close()
     elif cevap == 2:
         dosya = open(dosya_adi)
+        print(dosya.read())
         print(dosya.readlines())
         dosya.close()
     else: # elif cevap == 3:
