@@ -1,7 +1,7 @@
-def sayiyazdir(a,b=3,*args, c= 45):
+def sayiyazdir(a,b=3,*args):
     print(args)
     print([*args])
-    print(a,b,args,c,sep="\n")
+    print(a,b,args,sep="\n")
     for sayi in [*args]:
         print(sayi)
 

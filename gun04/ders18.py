@@ -5,3 +5,4 @@ def o_karti(**kwargs):
     o_bilgiler = {**kwargs}
     print(o_bilgiler)
 o_karti(o_adi="Esra",o_no=35,o_sehir="İzmir")
+# {"o_adi":"esra", .....}
