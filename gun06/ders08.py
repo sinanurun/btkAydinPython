@@ -24,13 +24,23 @@ def kitapListesiKaydet():
         file.write(y)
 
 def menu():
-    k_giris = input("Kaydet, Ekle, Çıkart, Listele, Q")
+    k_giris = input("Kaydet, Ekle, Çıkart, Listele, Dosya listele, Q")
     return k_giris
 while True:
     cevap = menu()
-    if cevap == "E":
-
-
+    if cevap == "e":
+        kitapListesineEkle()
+    elif cevap == "k":
+        kitapListesiKaydet()
+    elif cevap == "q":
+        print("programdan çıkıldı")
+        exit()
+    elif cevap == "l":
+        pass
+    elif cevap == "d":
+        pass
+    else:
+        print("hatalı işlem girişi")
 
 # kitap = Kitap("Python","Sinan Hoca",30, 2024)
 #
