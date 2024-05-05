@@ -21,21 +21,31 @@ def kitapListesineEkle():
     kitaplar.append(kitap)
 
 def kitapListesiKaydet():
-    with open("kitap.json","r") as file:
-        kitap_listesi2 = list(json.loads(file.read()))
+    try:
+        with open("kitap.json","r") as file:
+            kitap_listesi2 = list(json.loads(file.read()))
+    except:
+        kitap_listesi2 = []
     if len(kitap_listesi2) == 0:
-        y = json.dumps(kitap_listesi)
-        with open("kitap.json","w") as file:
-            file.write(y)
-        kitap_listesi.clear()
-        kitaplar.clear()
+        if len(kitap_listesi) > 0:
+            y = json.dumps(kitap_listesi)
+            with open("kitap.json","w") as file:
+                file.write(y)
+            kitap_listesi.clear()
+            kitaplar.clear()
+        else:
+            print("Kaydedilecek Kitap Yok")
     else:
-        kitap_listesi2.extend(kitap_listesi)
-        y = json.dumps(kitap_listesi2)
-        with open("kitap.json","w") as file:
-            file.write(y)
-        kitap_listesi.clear()
-        kitaplar.clear()
+        if len(kitap_listesi) > 0:
+            kitap_listesi2.extend(kitap_listesi)
+            y = json.dumps(kitap_listesi2)
+            with open("kitap.json","w") as file:
+                file.write(y)
+            kitap_listesi.clear()
+            kitaplar.clear()
+            del kitap_listesi2
+        else:
+            print("Kaydetmeyi Bekleyen Kitap Yok")
 
 def kitapListele():
     if len(kitaplar)>0:
@@ -45,8 +55,11 @@ def kitapListele():
         print("Kaydedilmeyi bekleyen kitap yok")
 
 def kayitlikitapListele():
-    with open("kitap.json", "r") as file:
-        kitap_listesi2 = list(json.loads(file.read()))
+    try:
+        with open("kitap.json", "r") as file:
+            kitap_listesi2 = list(json.loads(file.read()))
+    except:
+        kitap_listesi2 = []
     if len(kitap_listesi2)>0:
         for kitap_bilgisi in kitap_listesi2:
             kitap_adi = kitap_bilgisi["ad"]
