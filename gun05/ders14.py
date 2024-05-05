@@ -1,4 +1,6 @@
 class Otomobil():
+    teker = 4
+    kapi = True
     def __init__(self,marka,model,renk):
         self.marka = marka
         self.model = model
