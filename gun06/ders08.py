@@ -7,6 +7,8 @@ class Kitap():
         self.yazar=yazar
         self.sayfa=sayfa
         self.basim=basim
+    def __str__(self):
+        return str(self.ad)
 
 def kitapListesineEkle():
     kitap_adi = input("Kitap adı")
@@ -22,7 +24,15 @@ def kitapListesiKaydet():
     y = json.dumps(kitap_listesi)
     with open("kitap.json","w") as file:
         file.write(y)
+    kitap_listesi.clear()
+    kitaplar.clear()
 
+def kitapListele():
+    if len(kitaplar)>0:
+        for kitap in kitaplar:
+            print(kitap)
+    else:
+        print("Kaydedilmeyi bekleyen kitap yok")
 def menu():
     k_giris = input("Kaydet, Ekle, Çıkart, Listele, Dosya listele, Q")
     return k_giris
