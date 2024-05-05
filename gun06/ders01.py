@@ -30,3 +30,4 @@ calisan2 = Calisan("Berkay","Canan",505050)
 print(calisan1.sirket, Calisan.sirket,calisan2.sirket)
 calisan1.maas *= 1.5
 print(calisan1.maas)
+print(calisan1)
