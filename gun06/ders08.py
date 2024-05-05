@@ -43,6 +43,22 @@ def kitapListele():
             print(kitap)
     else:
         print("Kaydedilmeyi bekleyen kitap yok")
+
+def kayitlikitapListele():
+    with open("kitap.json", "r") as file:
+        kitap_listesi2 = list(json.loads(file.read()))
+    if len(kitap_listesi2)>0:
+        for kitap_bilgisi in kitap_listesi2:
+            kitap_adi = kitap_bilgisi["ad"]
+            kitap_yazar = kitap_bilgisi["yazar"]
+            kitap_sayfa = kitap_bilgisi["sayfa"]
+            kitap_yili = kitap_bilgisi["basim"]
+            kitap = Kitap(kitap_adi, kitap_yazar, kitap_sayfa, kitap_yili)
+            kitaplar.append(kitap)
+        for kitap in kitaplar:
+            print(kitap)
+    else:
+        print("Kayıtlı kitap yok")
 def menu():
     k_giris = input("Kaydet, Ekle, Çıkart, Listele, Dosya listele, Q")
     return k_giris
@@ -58,7 +74,7 @@ while True:
     elif cevap == "l":
         kitapListele()
     elif cevap == "d":
-        pass
+        kayitlikitapListele()
     else:
         print("hatalı işlem girişi")
 
