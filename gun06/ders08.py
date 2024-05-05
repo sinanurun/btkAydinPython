@@ -21,11 +21,21 @@ def kitapListesineEkle():
     kitaplar.append(kitap)
 
 def kitapListesiKaydet():
-    y = json.dumps(kitap_listesi)
-    with open("kitap.json","w") as file:
-        file.write(y)
-    kitap_listesi.clear()
-    kitaplar.clear()
+    with open("kitap.json","r") as file:
+        kitap_listesi2 = list(json.loads(file.read()))
+    if len(kitap_listesi2) == 0:
+        y = json.dumps(kitap_listesi)
+        with open("kitap.json","w") as file:
+            file.write(y)
+        kitap_listesi.clear()
+        kitaplar.clear()
+    else:
+        kitap_listesi2.extend(kitap_listesi)
+        y = json.dumps(kitap_listesi2)
+        with open("kitap.json","w") as file:
+            file.write(y)
+        kitap_listesi.clear()
+        kitaplar.clear()
 
 def kitapListele():
     if len(kitaplar)>0:
@@ -46,7 +56,7 @@ while True:
         print("programdan çıkıldı")
         exit()
     elif cevap == "l":
-        pass
+        kitapListele()
     elif cevap == "d":
         pass
     else:
