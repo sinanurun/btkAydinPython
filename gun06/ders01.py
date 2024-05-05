@@ -14,6 +14,9 @@ class Calisan():
         cls.sirket = input("Yeni Çalışacaklar İçin Şirket Bilgisi Giriniz : ")
         return cls.sirket
 
+    def __str__(self):
+        return f"{self.ad}, {self.soyad}, {self.maas}, {self.eposta}"
+
 
 print(Calisan.sirket)
 # print(Calisan.fSirketDegis())
@@ -25,3 +28,5 @@ print(calisan1.sirket, Calisan.sirket)
 Calisan.fSirketDegis()
 calisan2 = Calisan("Berkay","Canan",505050)
 print(calisan1.sirket, Calisan.sirket,calisan2.sirket)
+calisan1.maas *= 1.5
+print(calisan1.maas)
