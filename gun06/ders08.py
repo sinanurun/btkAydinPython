@@ -8,7 +8,7 @@ class Kitap():
         self.sayfa=sayfa
         self.basim=basim
     def __str__(self):
-        return str(self.ad)
+        return self.ad
 
 def kitapListesineEkle():
     kitap_adi = input("Kitap adı")
