@@ -33,10 +33,16 @@ class HesapMakinesi(QWidget, Ui_Form):
         bolum = int(self.alan1.text()) / int(self.alan2.text())
         self.lbl_sonuc.setText(str(bolum))
     def carp(self):
-        carpim = int(self.alan1.text()) * int(self.alan2.text())
-        self.lbl_sonuc.setText(str(carpim))
+        if self.kontrol() is not False:
+            carpim = int(self.alan1.text()) * int(self.alan2.text())
+            self.lbl_sonuc.setText(str(carpim))
 
-
+    def kontrol(self):
+        if self.alan1.text() == "" or "" == self.alan2.text():
+            self.lbl_sonuc.setText("Boş Alan Bırakmayın")
+            return False
+        else:
+            return (int(self.alan1.text()),int(self.alan2.text()))
 
 if __name__ == "__main__":
     import sys
