@@ -70,6 +70,7 @@ def kayitlikitapListele():
             kitaplar.append(kitap)
         for kitap in kitaplar:
             print(kitap)
+        kitaplar.clear()
     else:
         print("Kayıtlı kitap yok")
 def menu():
