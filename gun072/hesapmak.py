@@ -16,7 +16,26 @@ class HesapMakinesi(QWidget, Ui_Form):
     def __init__(self):
         super(HesapMakinesi, self).__init__()
         self.setupUi(self)
-        
+
+        self.btn_bol.clicked.connect(self.bol)
+        self.btn_topla.clicked.connect(self.topla)
+        self.btn_cikar.clicked.connect(self.cikar)
+        self.btn_carp.clicked.connect(self.carp)
+
+    def topla(self):
+        toplam = int(self.alan1.text()) + int(self.alan2.text())
+        self.lbl_sonuc.setText(str(toplam))
+
+    def cikar(self):
+        cikar = int(self.alan1.text()) - int(self.alan2.text())
+        self.lbl_sonuc.setText(str(cikar))
+    def bol(self):
+        bolum = int(self.alan1.text()) / int(self.alan2.text())
+        self.lbl_sonuc.setText(str(bolum))
+    def carp(self):
+        carpim = int(self.alan1.text()) * int(self.alan2.text())
+        self.lbl_sonuc.setText(str(carpim))
+
 
 
 if __name__ == "__main__":
