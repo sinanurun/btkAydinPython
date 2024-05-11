@@ -14,7 +14,17 @@ def birim_ekle():
     session.add(yeni_birim)
     session.commit()
 
+def birim_sil():
+    b_id = int(input("Bir ID Giriniz"))
+    try:
+        session.query(Birim).filter(Birim.birim_id==b_id).delete()
+        session.commit()
+    except:
+        print("Geçersiz id Girdiniz")
+
 birim_listele()
 birim_ekle()
+birim_listele()
+birim_sil()
 birim_listele()
 
