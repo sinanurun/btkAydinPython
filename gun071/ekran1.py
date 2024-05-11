@@ -8,10 +8,15 @@ class AnaEkranPenceresi(QWidget, Ui_Form):
         self.setupUi(self)
 
         self.pushButton.clicked.connect(self.arttir)
+        self.pushButton_2.clicked.connect(self.azalt)
 
     def arttir(self):
         sayi = int(self.label.text())
         sayi +=1
+        self.label.setText(str(sayi))
+    def azalt(self):
+        sayi = int(self.label.text())
+        sayi -=1
         self.label.setText(str(sayi))
 
 if __name__ == "__main__":
