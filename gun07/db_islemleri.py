@@ -22,9 +22,17 @@ def birim_sil():
     except:
         print("Geçersiz id Girdiniz")
 
+def birim_guncelle():
+    b_id = int(input("guncellenecek birim id giriniz"))
+    birim = session.query(Birim).filter(Birim.birim_id == b_id).first()
+    yeni_birim_adi = input(f"{birim.birim_adi}:yeni ad Giriniz")
+    birim.birim_adi = yeni_birim_adi
+    session.commit()
 birim_listele()
 birim_ekle()
 birim_listele()
 birim_sil()
+birim_listele()
+birim_guncelle()
 birim_listele()
 
