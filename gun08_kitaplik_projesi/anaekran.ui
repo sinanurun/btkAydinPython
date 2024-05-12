@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="kitapTablosu">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>771</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Kitap Id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Kitap Adi</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Kitap Sayfa Sayısı</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Guncelle</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Sil</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuKitaplik">
+    <property name="title">
+     <string>Kitaplik</string>
+    </property>
+    <addaction name="actionKitaplarim"/>
+    <addaction name="actionKitap_Ekle"/>
+   </widget>
+   <addaction name="menuKitaplik"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionKitaplarim">
+   <property name="text">
+    <string>Kitaplarim</string>
+   </property>
+  </action>
+  <action name="actionKitap_Ekle">
+   <property name="text">
+    <string>Kitap Ekle</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
