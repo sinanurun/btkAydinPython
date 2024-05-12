@@ -25,7 +25,7 @@ def kitap_listele(k_id):
 
 def kitap_ekle(k_adi,k_sayfa_sayisi,user_id):
     try:
-        yeni_kitap = Kitaplik(kitap_user=user_id,kitap_adi=k_adi,kitap_sayisi=int(k_sayfa_sayisi))
+        yeni_kitap = Kitaplik(kitap_user=user_id,kitap_adi=k_adi,kitap_sayfa_sayisi=int(k_sayfa_sayisi))
         session.add(yeni_kitap)
         session.commit()
         return True

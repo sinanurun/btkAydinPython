@@ -18,6 +18,20 @@ class Kitap_Kaydetme_Ekrani(QWidget, Ui_kitapKaydetmeFormu):
     def __init__(self, user_id = 1):
         super(Kitap_Kaydetme_Ekrani, self).__init__()
         self.setupUi(self)
+        self.user_id=user_id
+        self.btn_kitap_ekle.clicked.connect(self.kitapEkle)
+
+    def kitapEkle(self):
+        try:
+            k_adi = self.kitapAdiEdit.text()
+            k_sayfa_sayisi = int(self.sayfaSayisiEdit.text())
+            sonuc = db_islemleri.kitap_ekle(k_adi, k_sayfa_sayisi, self.user_id)
+            if sonuc:
+                print("kitap ekleme başarılı")
+        except Exception as e:
+            print("kitap ekleme hatalı oldu", e)
+
+
 
 if __name__ == "__main__":
     app =QApplication(sys.argv)
