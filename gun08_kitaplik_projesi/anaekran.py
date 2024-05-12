@@ -40,8 +40,29 @@ class AnaEkran(QMainWindow, Ui_MainWindow):
                    self.kitapTablosu.setItem(index,0,QTableWidgetItem(str(kitap.kitap_id)))
                    self.kitapTablosu.setItem(index,1,QTableWidgetItem(kitap.kitap_adi))
                    self.kitapTablosu.setItem(index,2,QTableWidgetItem(str(kitap.kitap_sayfa_sayisi)))
+                   button = QPushButton(self)
+                   button.setText("Sil")
+                   button.clicked.connect(lambda: self.kitap_sil(kitap.kitap_id))
+                   self.kitapTablosu.setCellWidget(index,3,button)
+
+
+
+
+
        except:
            pass
+
+   def kitap_sil(self, id):
+       try:
+           sonuc = db_islemleri.kitap_sil(id)
+           if sonuc:
+               print("Kitap Silme Başarılı")
+           else:
+               print("Kitap silme başarısız")
+           self.kitapTablosu.clear()
+           self.karsilama()
+       except Exception as e:
+           print(e)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

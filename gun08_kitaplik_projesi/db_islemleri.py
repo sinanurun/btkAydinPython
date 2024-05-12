@@ -32,3 +32,12 @@ def kitap_ekle(k_adi,k_sayfa_sayisi,user_id):
     except Exception as e:
         print(e)
         return False
+
+def kitap_sil(kitap_id):
+    try:
+        session.query(Kitaplik).filter(Kitaplik.kitap_id==kitap_id).delete()
+        session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
