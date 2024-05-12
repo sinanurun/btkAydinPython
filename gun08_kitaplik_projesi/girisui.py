@@ -30,6 +30,7 @@ class Ui_Giris_Formu(object):
         self.kAdiEdit.setObjectName("kAdiEdit")
         self.kSifreEdit = QtWidgets.QLineEdit(Giris_Formu)
         self.kSifreEdit.setGeometry(QtCore.QRect(77, 242, 133, 20))
+        self.kSifreEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.kSifreEdit.setObjectName("kSifreEdit")
         self.label_2 = QtWidgets.QLabel(Giris_Formu)
         self.label_2.setGeometry(QtCore.QRect(9, 216, 55, 16))
