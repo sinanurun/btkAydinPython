@@ -10,12 +10,27 @@
 from PyQt5.QtWidgets import *
 import sys
 from anaekranui import Ui_MainWindow
+from db_islemleri import *
 class AnaEkran(QMainWindow, Ui_MainWindow):
-   def __init__(self):
+   def __init__(self, user_id = 1):
        super(AnaEkran, self).__init__()
        self.setupUi(self)
+
+       self.kitap_tablosu_olustur(user_id)
+   def kitap_tablosu_olustur(self,user_id):
+       kitaplar = kitap_listele(user_id)
+       try:
+           if kitaplar != False:
+               for index, kitap in enumerate(kitaplar):
+                   self.kitapTablosu.insertRow(index)
+                   self.kitapTablosu.setItem(index,0,QTableWidgetItem(str(kitap.kitap_id)))
+                   self.kitapTablosu.setItem(index,1,QTableWidgetItem(kitap.kitap_adi))
+                   self.kitapTablosu.setItem(index,2,QTableWidgetItem(str(kitap.kitap_sayfa_sayisi)))
+       except:
+           pass
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    anaekran = AnaEkran()
+    anaekran = AnaEkran(1)
     anaekran.show()
     sys.exit(app.exec_())
