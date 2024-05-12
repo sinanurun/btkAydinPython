@@ -12,6 +12,8 @@ from PyQt5.QtWidgets import *
 import sys
 from girisui import Ui_Giris_Formu
 import db_islemleri
+from anaekran import *
+
 class Giris_Formu(QWidget, Ui_Giris_Formu):
     def __init__(self):
         super(Giris_Formu, self).__init__()
@@ -24,6 +26,9 @@ class Giris_Formu(QWidget, Ui_Giris_Formu):
         user = db_islemleri.k_girisi(k_adi,k_sifre)
         if user != 0 :
             print("oturum açan kullanıcı idsi:",user)
+            self.hide()
+            self.yekran = AnaEkran(user)
+            self.yekran.show()
         else:
             print("oturum açma işlemi gerçekleşmedi")
 
