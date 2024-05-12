@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>kitapKaydetmeFormu</class>
+ <widget class="QWidget" name="kitapKaydetmeFormu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kitap Kayıt Formu</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>301</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="kitapAdLabel">
+      <property name="text">
+       <string>Kitap Adı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="kitapAdiEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="sayfaSaySLabel">
+      <property name="text">
+       <string>Sayfa Sayısı</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="sayfaSayisiEdit"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="btn_kitap_ekle">
+      <property name="text">
+       <string>Kitap Kaydet</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -31,6 +31,6 @@ class AnaEkran(QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    anaekran = AnaEkran(1)
+    anaekran = AnaEkran(2)
     anaekran.show()
     sys.exit(app.exec_())
