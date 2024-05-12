@@ -11,14 +11,28 @@ from PyQt5.QtWidgets import *
 import sys
 from anaekranui import Ui_MainWindow
 from db_islemleri import *
+from kitap_ekleme import *
+
 class AnaEkran(QMainWindow, Ui_MainWindow):
    def __init__(self, user_id = 1):
        super(AnaEkran, self).__init__()
+       self.user_id = user_id
+
+       self.karsilama()
+
+   def karsilama(self):
        self.setupUi(self)
 
-       self.kitap_tablosu_olustur(user_id)
-   def kitap_tablosu_olustur(self,user_id):
-       kitaplar = kitap_listele(user_id)
+       self.actionKitaplarim.triggered.connect(self.karsilama)
+       self.actionKitap_Ekle.triggered.connect(self.kitap_ekle)
+       self.kitap_tablosu_olustur()
+
+
+   def kitap_ekle(self):
+       self.setCentralWidget(Kitap_Kaydetme_Ekrani(self.user_id))
+
+   def kitap_tablosu_olustur(self):
+       kitaplar = kitap_listele(self.user_id)
        try:
            if kitaplar != False:
                for index, kitap in enumerate(kitaplar):
