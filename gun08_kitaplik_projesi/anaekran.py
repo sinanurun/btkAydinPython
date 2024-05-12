@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from functools import partial
 
 # Form implementation generated from reading ui file 'anaekran.ui'
 #
@@ -32,9 +33,11 @@ class AnaEkran(QMainWindow, Ui_MainWindow):
        self.setCentralWidget(Kitap_Kaydetme_Ekrani(self.user_id))
 
    def kitap_tablosu_olustur(self):
+
        kitaplar = kitap_listele(self.user_id)
        try:
            if kitaplar != False:
+
                for index, kitap in enumerate(kitaplar):
                    self.kitapTablosu.insertRow(index)
                    self.kitapTablosu.setItem(index,0,QTableWidgetItem(str(kitap.kitap_id)))
@@ -42,24 +45,37 @@ class AnaEkran(QMainWindow, Ui_MainWindow):
                    self.kitapTablosu.setItem(index,2,QTableWidgetItem(str(kitap.kitap_sayfa_sayisi)))
                    button = QPushButton(self)
                    button.setText("Sil")
-                   button.clicked.connect(lambda: self.kitap_sil(kitap.kitap_id))
+                   button.clicked.connect(partial(self.kitap_sil, kitap.kitap_id))
                    self.kitapTablosu.setCellWidget(index,3,button)
+               self.kitapTablosu.itemChanged.connect(self.kitap_guncelle)
+       except Exception as e:
+           print(e)
 
+   def kitap_guncelle(self, item):
+       row = item.row()
+       column = item.column()
+       new_value = item.text()
+       print(f"Satır: {row}, Sütun: {column}, Yeni Değer: {new_value}")
+       k_id = self.kitapTablosu.item(row, 0).text()
+       kitap_adi = self.kitapTablosu.item(row, 1).text()
+       kitap_sayfa_sayisi = self.kitapTablosu.item(row, 2).text()
+       print(k_id, kitap_adi, kitap_sayfa_sayisi)
+       kitap = session.query(Kitaplik).filter(Kitaplik.kitap_id == int(k_id)).first()
+       kitap.kitap_adi = kitap_adi
+       kitap.kitap_sayfa_sayisi = int(kitap_sayfa_sayisi)
+       session.commit()
+       self.karsilama()
 
-
-
-
-       except:
-           pass
 
    def kitap_sil(self, id):
+       self.kitapTablosu.clearContents()
+       print(id)
        try:
            sonuc = db_islemleri.kitap_sil(id)
            if sonuc:
                print("Kitap Silme Başarılı")
            else:
                print("Kitap silme başarısız")
-           self.kitapTablosu.clear()
            self.karsilama()
        except Exception as e:
            print(e)
