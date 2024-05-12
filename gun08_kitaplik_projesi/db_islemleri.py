@@ -12,3 +12,13 @@ def k_girisi(k_adi, k_sifre):
         return kullanici.user_id
     except:
         return 0
+
+def kitap_listele(k_id):
+    try:
+        kitaplar = session.query(Kitaplik).filter(Kitaplik.kitap_user==k_id).all()
+        if len(kitaplar) > 0:
+            return kitaplar
+        else:
+            return False
+    except:
+        return False
